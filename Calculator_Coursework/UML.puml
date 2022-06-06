@@ -1,0 +1,56 @@
+@startuml
+class com.company.KiloConverter {
+~ JPanel panel
+~ JLabel messageLabel
+~ JTextField kiloTextField
+~ JButton calcButton
+- void buildPanel()
+}
+class com.company.KiloConverter.CalcButtonListener {
++ void actionPerformed(ActionEvent)
+}
+class com.company.Scientific {
+~ JButton pow
+~ JPanel sciP
+~ GridLayout gridScOp
+~ JPanel allOp
+- void setButtonDesign()
++ void actionPerformed(ActionEvent)
+}
+class com.company.Main {
++ {static} void main(String[])
+}
+class com.company.HelpOperators {
+~ JLabel addL
+~ JPanel panel
+- void setlabelDesigh()
+}
+class com.company.Calculator {
+~ Scientific sciObj
+~ JMenu menu
+~ JMenu help
+~ JMenuBar menuBar
+~ JMenuItem standardCal
+~ JTextField textField
+~ String num1
+~ JButton b0
+~ JPanel windowContent
+~ JPanel numP
+~ JPanel opP
+~ JPanel equalPanel
+~ GridLayout gridOperators
+~ GridLayout gridNumbers
+- void setButtonDesign()
++ void actionPerformed(ActionEvent)
+}
+
+
+com.company.JFrame <|-- com.company.KiloConverter
+com.company.KiloConverter +.. com.company.KiloConverter.CalcButtonListener
+com.company.ActionListener <|.. com.company.KiloConverter.CalcButtonListener
+java.awt.event.ActionListener <|.. com.company.Scientific
+com.company.Calculator <|-- com.company.Scientific
+com.company.JFrame <|-- com.company.HelpOperators
+java.awt.event.ActionListener <|.. com.company.Calculator
+com.company.JFrame <|-- com.company.Calculator
+@enduml
